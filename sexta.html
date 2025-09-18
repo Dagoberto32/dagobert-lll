@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Carrito de Compras - Vida Saludable</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body { background: linear-gradient(120deg, #fffde4 0%, #e0f7fa 100%); font-family: 'Segoe UI', Arial, sans-serif; margin: 0; }
+    header { background-color: #43a047; padding: 20px; text-align: center; color: #fff; }
+    header h1 { margin: 0; }
+    nav ul { list-style: none; padding: 0; margin-top: 10px; display: flex; justify-content: center; gap: 20px; }
+    nav ul li a { text-decoration: none; color: #fff; font-weight: bold; transition: color 0.3s ease; }
+    nav ul li a:hover { color: #ff9800; }
+    .carrito-main { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 14px; box-shadow: 0 4px 24px rgba(67,160,71,0.10); padding: 32px 18px; }
+    h2 { color: #43a047; }
+    .carrito-lista { list-style: none; padding: 0; margin: 0 0 18px 0; }
+    .carrito-lista li { border-bottom: 1px solid #e0e0e0; padding: 12px 0; display: flex; justify-content: space-between; align-items: center; }
+    .carrito-lista li:last-child { border-bottom: none; }
+    .carrito-total { font-weight: bold; font-size: 1.15em; margin-bottom: 18px; color: #219150; }
+    .carrito-btn { background: linear-gradient(90deg, #43a047 60%, #ff9800 100%); color: #fff; border: none; border-radius: 10px; font-size: 1.1em; font-weight: 600; padding: 10px 28px; margin: 0 8px 0 0; box-shadow: 0 2px 8px rgba(67,160,71,0.13); cursor: pointer; transition: background 0.2s, transform 0.18s; }
+    .carrito-btn:hover { background: linear-gradient(90deg, #ff9800 60%, #43a047 100%); transform: scale(1.07); }
+    .carrito-vacio { color: #888; text-align: center; margin: 32px 0; }
+  </style>
+</head>
+<body>
+  <header style="position:relative;">
+    <h1 style="margin:0;padding:18px 0 0 0;text-align:center;color:#43a047;font-size:2.1em;">Carrito de Compras</h1>
+    <nav>
+      <ul style="list-style:none;padding:0;margin-top:10px;display:flex;justify-content:center;gap:20px;">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="bienvenido.html">Bienvenida</a></li>
+        <li><a href="segunda.html">Ejercicio</a></li>
+        <li><a href="tercera.html">Alimentación</a></li>
+        <li><a href="cuarta.html">Bienestar Psicológico</a></li>
+        <li><a href="quinta.html">Quiénes Somos</a></li>
+        <li><a href="sexta.html" style="color:#ff9800;font-weight:bold;">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="carrito-main">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:18px;">
+      <a href="checklist.html" style="background:linear-gradient(90deg,#5c6bc0 60%,#26a69a 100%);color:#fff;border:none;border-radius:10px;font-size:1.08em;font-weight:600;padding:10px 28px;box-shadow:0 2px 8px rgba(92,107,192,0.13);cursor:pointer;text-decoration:none;transition:background 0.22s,transform 0.18s,box-shadow 0.18s;outline:none;">Encuesta de experiencia</a>
+    </div>
+    <h2>Tu carrito</h2>
+    <table id="carrito-tabla" style="width:100%;border-collapse:collapse;margin-bottom:18px;">
+      <thead>
+        <tr style="background:#e0f7fa;color:#219150;">
+          <th style="padding:8px 4px;">Imagen</th>
+          <th style="padding:8px 4px;">Producto</th>
+          <th style="padding:8px 4px;">Precio unitario</th>
+          <th style="padding:8px 4px;">Cantidad</th>
+          <th style="padding:8px 4px;">Subtotal</th>
+          <th style="padding:8px 4px;">Quitar</th>
+        </tr>
+      </thead>
+      <tbody id="carrito-lista"></tbody>
+    </table>
+  <div id="carrito-resumen" class="carrito-total">Total: $0 | Productos: 0</div>
+  <div id="carrito-total-grande" style="font-size:2em;font-weight:bold;color:#ff9800;text-align:right;margin:18px 0 10px 0;">Total: $0</div>
+    <button id="carrito-vaciar" class="carrito-btn">Vaciar carrito</button>
+    <button id="carrito-finalizar" class="carrito-btn">Finalizar compra</button>
+    <div id="carrito-vacio" class="carrito-vacio" style="display:none;">Tu carrito está vacío.</div>
+    <section style="margin-top:40px;">
+      <h2 style="color:#ff9800;">Productos recomendados</h2>
+      <div id="productos-recomendados" style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center;"></div>
+    </section>
+  </main>
+  <script>
+    function cerrarSesion() {
+      localStorage.clear();
+      window.location.href = 'bienvenido.html';
+    }
+  </script>
+  <footer>
+    <p>&copy; 2025 Vida Saludable. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+    // --- Carrito de compras en sexta.html ---
+    // Productos recomendados (puedes agregar más)
+    // Precios aproximados en pesos colombianos (COP) a agosto 2025
+    const productosRecomendados = [
+  { nombre: 'Multivitamínico Complejo', precio: 42000, descripcion: 'Suplemento completo de vitaminas y minerales.', imagen: 'img/multivitamin.jpg' },
+  { nombre: 'Vitamina C 1000mg', precio: 18000, descripcion: 'Refuerza el sistema inmune.', imagen: 'img/vitamina c.jpg' },
+  { nombre: 'Omega 3 (EPA/DHA)', precio: 35000, descripcion: 'Ácidos grasos esenciales para el corazón.', imagen: 'img/omega 3.webp' },
+  { nombre: 'Proteína Vegetal', precio: 95000, descripcion: 'Ideal para recuperación muscular.', imagen: 'img/vegetal pro.jpg' },
+  { nombre: 'Manzanas Rojas (kg)', precio: 5200, descripcion: 'Fruta fresca y antioxidante.', imagen: 'img/manzanas.jpg' },
+  { nombre: 'Plátanos (kg)', precio: 3200, descripcion: 'Fuente natural de potasio.', imagen: 'img/banana-1025109_1280.jpg' },
+  { nombre: 'Nueces Mixtas (250g)', precio: 16000, descripcion: 'Grasas saludables y energía.', imagen: 'img/nueces.jpg' },
+  { nombre: 'Zanahorias Baby (500g)', precio: 3500, descripcion: 'Snack saludable y crujiente.', imagen: 'img/zanahoria.jpg' }
+    ];
+
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    function formatoCOP(valor) {
+      return valor.toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
+    }
+
+    function renderCarrito() {
+      const lista = document.getElementById('carrito-lista');
+      const resumen = document.getElementById('carrito-resumen');
+      const vacio = document.getElementById('carrito-vacio');
+      const totalGrande = document.getElementById('carrito-total-grande');
+      lista.innerHTML = '';
+      let suma = 0;
+      let totalProductos = 0;
+      if(carrito.length === 0) {
+        vacio.style.display = 'block';
+        resumen.textContent = 'Total: $0 | Productos: 0';
+        totalGrande.textContent = 'Total: $0';
+      } else {
+        vacio.style.display = 'none';
+        carrito.forEach((item, i) => {
+          suma += item.precio * item.cantidad;
+          totalProductos += item.cantidad;
+          // Buscar imagen del producto si existe en productosRecomendados
+          let imagen = '';
+          const prodRec = productosRecomendados.find(p => p.nombre === item.nombre);
+          if(prodRec && prodRec.imagen) {
+            imagen = prodRec.imagen;
+          } else {
+            imagen = 'img/no-image.png'; // Imagen por defecto si no existe
+          }
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><img src='${imagen}' alt='${item.nombre}' style='width:55px;height:55px;object-fit:cover;border-radius:7px;background:#e0e0e0;'></td>
+            <td><b>${item.nombre}</b></td>
+            <td>${formatoCOP(item.precio)}</td>
+            <td>${item.cantidad}</td>
+            <td>${formatoCOP(item.precio * item.cantidad)}</td>
+            <td><button class='carrito-btn' style='padding:2px 10px;font-size:1em;' onclick='eliminarDelCarrito(${i})'>✖</button></td>
+          `;
+          lista.appendChild(tr);
+        });
+        resumen.textContent = `Total: ${formatoCOP(suma)} | Productos: ${totalProductos}`;
+        totalGrande.textContent = `Total: ${formatoCOP(suma)}`;
+      }
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+    }
+
+    function eliminarDelCarrito(idx) {
+      carrito.splice(idx, 1);
+      renderCarrito();
+    }
+
+    document.getElementById('carrito-vaciar').onclick = function() {
+      carrito = [];
+      renderCarrito();
+    };
+
+    document.getElementById('carrito-finalizar').onclick = function() {
+      alert('¡Gracias por tu compra saludable!');
+      carrito = [];
+      renderCarrito();
+    };
+
+    window.eliminarDelCarrito = eliminarDelCarrito;
+
+    // Mostrar productos recomendados
+    function renderProductosRecomendados() {
+      const cont = document.getElementById('productos-recomendados');
+      cont.innerHTML = '';
+      productosRecomendados.forEach((prod, idx) => {
+        const card = document.createElement('div');
+        card.style = 'background:#fff;border-radius:10px;box-shadow:0 2px 8px #43a04722;padding:16px;width:220px;display:flex;flex-direction:column;align-items:center;';
+        card.innerHTML = `
+          <img src='${prod.imagen}' alt='${prod.nombre}' style='width:90px;height:90px;object-fit:cover;border-radius:8px;margin-bottom:10px;background:#e0e0e0;'>
+          <h3 style='margin:0 0 6px 0;font-size:1.1em;color:#219150;'>${prod.nombre}</h3>
+          <div style='color:#888;font-size:0.97em;margin-bottom:6px;text-align:center;'>${prod.descripcion}</div>
+          <div style='font-weight:bold;color:#ff9800;margin-bottom:8px;'>$${prod.precio}</div>
+          <button class='carrito-btn' onclick='agregarAlCarritoRecomendado(${idx})'>Agregar al carrito</button>
+        `;
+        cont.appendChild(card);
+      });
+    }
+
+    window.agregarAlCarritoRecomendado = function(idx) {
+      const prod = productosRecomendados[idx];
+      // Si ya está en el carrito, suma cantidad
+      const existe = carrito.find(item => item.nombre === prod.nombre);
+      if(existe) {
+        existe.cantidad += 1;
+      } else {
+        carrito.push({ nombre: prod.nombre, precio: prod.precio, cantidad: 1, imagen: prod.imagen });
+      }
+      renderCarrito();
+    }
+
+    renderCarrito();
+    renderProductosRecomendados();
+  </script>
+</body>
+</html>

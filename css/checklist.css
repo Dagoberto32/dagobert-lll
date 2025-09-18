@@ -1,0 +1,192 @@
+/* Paleta suave y fresca para checklist */
+/* Paleta alternativa suave y agradable */
+:root {
+    --color-fondo-checklist: #fafdff;
+    --color-contenedor: #fff;
+    --color-borde: #cfd8dc;
+    --color-titulo: #3949ab;
+    --color-pregunta: #222;
+    --color-estrella: #FFD700;
+    --color-estrella-off: #b0bec5;
+    --color-estrella-focus: #90caf9;
+    --color-shadow: 0 4px 24px rgba(92,107,192,0.10);
+}
+body {
+    background: var(--color-fondo-checklist);
+}
+.checklist-container {
+    max-width: 1100px;
+    width: 98vw;
+    margin: 40px auto;
+    background: var(--color-contenedor);
+    border-radius: 18px;
+    box-shadow: var(--color-shadow);
+    padding: 36px 28px 32px 28px;
+}
+.checklist-container h1 {
+    color: var(--color-titulo);
+    margin-bottom: 18px;
+    text-align: center;
+}
+.checklist-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.checklist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-bottom: 1px solid var(--color-borde);
+    padding: 18px 0 10px 0;
+    font-size: 1.18em;
+    background: transparent;
+}
+.checklist-item:last-child {
+    border-bottom: none;
+}
+.pregunta {
+    flex: 1 1 60%;
+    text-align: left;
+    min-width: 220px;
+    color: var(--color-pregunta);
+    font-weight: bold;
+    letter-spacing: 0.01em;
+}
+.estrellas {
+    display: flex;
+    align-items: center;
+    min-width: 160px;
+    justify-content: flex-end;
+    gap: 2px;
+}
+.estrella {
+    font-size: 2.1em;
+    color: var(--color-estrella-off);
+    cursor: pointer;
+    transition: color 0.2s, text-shadow 0.2s;
+    user-select: none;
+    text-shadow: none;
+    margin: 0 2px;
+}
+.estrella.seleccionada {
+    color: var(--color-estrella);
+    text-shadow: 0 0 4px #ffe08299;
+}
+.estrella:focus {
+    outline: 2px solid var(--color-estrella-focus);
+}
+/* Botón de navegación igual al de carrito y otras páginas */
+.btn-nav {
+    background: linear-gradient(90deg, #2e8b57 60%, #219150 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 10px 28px;
+    margin: 0 0 0 8px;
+    box-shadow: 0 2px 8px rgba(33,145,80,0.13);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.18s;
+    outline: none;
+}
+.btn-nav:hover {
+    background: linear-gradient(90deg, #219150 60%, #2e8b57 100%);
+    transform: scale(1.07);
+    box-shadow: 0 4px 18px rgba(33,145,80,0.18);
+}
+.btn-carrito {
+    background: linear-gradient(90deg, #2e8b57 60%, #219150 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 10px 28px;
+    margin: 0 0 0 8px;
+    box-shadow: 0 2px 8px rgba(33,145,80,0.13);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.18s;
+    outline: none;
+}
+.btn-carrito:hover {
+    background: linear-gradient(90deg, #219150 60%, #2e8b57 100%);
+    transform: scale(1.07);
+    box-shadow: 0 4px 18px rgba(33,145,80,0.18);
+}
+.btn-cerrar-sesion {
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    background: linear-gradient(90deg, #ff6f61 60%, #f06292 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 22px 8px 16px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 12px #f0629240;
+    transition: background 0.22s, transform 0.18s, box-shadow 0.18s, filter 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    z-index: 10;
+    letter-spacing: 0.02em;
+    filter: brightness(1);
+}
+.btn-cerrar-sesion svg {
+    flex-shrink: 0;
+    margin: 0;
+}
+.btn-cerrar-sesion:hover {
+    background: linear-gradient(90deg, #f06292 60%, #ff6f61 100%);
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px #f0629240;
+    filter: brightness(1.08) drop-shadow(0 0 6px #f0629266);
+}
+.btn-cerrar-sesion:active {
+    transform: scale(0.96);
+    filter: brightness(0.95);
+}
+@media (max-width: 700px) {
+    .checklist-container {
+        max-width: 99vw;
+        padding: 10px 2vw;
+    }
+    .checklist-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 1em;
+    }
+    .estrellas {
+        justify-content: flex-start;
+        min-width: 0;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #23243a;
+    }
+    .checklist-container {
+        background: #23243a;
+        color: #fff;
+    }
+    .checklist-item {
+        border-bottom: 1px solid #37474f;
+    }
+    .pregunta {
+        color: #90caf9;
+    }
+    .estrella {
+        color: #37474f;
+    }
+    .estrella.seleccionada {
+        color: #ffe082;
+    }
+}

@@ -1,0 +1,54 @@
+/* Estilos exclusivos para la tercera página: alimentación y bienestar */
+.tercera-main {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #fffde4 0%, #f7e9d7 100%);
+}
+.tercera-section {
+    padding: 40px 5vw 30px 5vw;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.tercera-section h1, .tercera-section h2 {
+    color: #d2691e;
+    margin-bottom: 18px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+.tercera-section h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 8px #ffe4b5;
+}
+.tercera-section h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+.tercera-section ul {
+    background: #fff8ee;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(210,105,30,0.07);
+    padding: 24px 32px;
+    margin-bottom: 30px;
+    font-size: 1.13em;
+    line-height: 1.8;
+    border-left: 6px solid #d2691e;
+}
+.tercera-section li {
+    margin-bottom: 12px;
+    padding-left: 6px;
+}
+.tercera-extra {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(210,105,30,0.07);
+    padding: 24px 32px;
+    margin-bottom: 30px;
+    font-size: 1.08em;
+    line-height: 1.7;
+    border-left: 4px solid #d2691e;
+}

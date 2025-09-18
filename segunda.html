@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segunda Página</title>
+        <link rel="stylesheet" href="css/segunda.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Salud Integral</h1>
+        <nav>
+            <ul>
+            </ul>
+        </nav>
+    </header>
+    <div id="tarjeta-bienvenida-segunda" class="tarjeta-bienvenida-modal">
+        <div class="tarjeta-bienvenida">
+            <h2>¡Haz ingresado a la página!</h2>
+            <button id="aceptar-bienvenida-segunda">Aceptar</button>
+        </div>
+    </div>
+    <main id="contenido-segunda" class="segunda-main" style="filter: blur(2px) brightness(0.7); pointer-events: none;">
+        <section class="segunda-section" style="text-align:center;">
+            <h1>Bienvenido a la sección de ejercicio saludable</h1>
+            <p style="font-size:1.2em;max-width:900px;margin:0 auto 30px auto;">El ejercicio físico es una de las mejores formas de cuidar tu salud integral. No solo fortalece tu cuerpo, sino que también mejora tu estado de ánimo, reduce el estrés y previene enfermedades. Aquí te compartimos información clave y consejos prácticos para que tu rutina de ejercicio sea segura, efectiva y motivadora.</p>
+        </section>
+        <section class="segunda-section segunda-tips" style="gap: 48px;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+                <div class="segunda-card">
+                    <h2>¿Por qué es importante ejercitarse?</h2>
+                    <ul>
+                        <li>Mejora la salud cardiovascular y pulmonar.</li>
+                        <li>Ayuda a controlar el peso y la composición corporal.</li>
+                        <li>Fortalece músculos, huesos y articulaciones.</li>
+                        <li>Reduce el riesgo de enfermedades crónicas como diabetes e hipertensión.</li>
+                        <li>Favorece el bienestar mental y emocional.</li>
+                    </ul>
+                    <div class="segunda-extra">
+                        <strong>Ejemplo:</strong> Realizar caminatas diarias de 30 minutos puede reducir el riesgo de enfermedades cardíacas y mejorar tu estado de ánimo.
+                    </div>
+                </div>
+                <img src="img/istockphoto-2155475438-1024x1024.jpg" alt="Ejercicio saludable" class="segunda-img">
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+                <div class="segunda-card">
+                    <h2>Tips para ejercitarte de manera saludable</h2>
+                    <ul>
+                        <li>Realiza un calentamiento de 5-10 minutos antes de empezar.</li>
+                        <li>Hidrátate antes, durante y después del ejercicio.</li>
+                        <li>Elige ejercicios adecuados a tu edad y condición física.</li>
+                        <li>Escucha a tu cuerpo: si sientes dolor, detente y descansa.</li>
+                        <li>Incluye variedad: combina fuerza, flexibilidad y cardio.</li>
+                        <li>Respeta los días de descanso para evitar lesiones.</li>
+                        <li>Mantén una postura correcta y usa ropa y calzado apropiados.</li>
+                    </ul>
+                    <div class="segunda-extra">
+                        <strong>Consejo:</strong> Consulta con un profesional antes de iniciar una rutina intensa y mantén un registro de tus progresos.
+                    </div>
+                </div>
+                <img src="img/pexels-liliana-drew-8497675.jpg" alt="Tips de ejercicio" class="segunda-img">
+            </div>
+        </section>
+        <section class="segunda-section" style="max-width:700px;">
+            <div class="segunda-card">
+                <h2>Errores comunes al hacer ejercicio</h2>
+                <ul>
+                    <li>No calentar ni estirar adecuadamente.</li>
+                    <li>Sobreentrenar sin respetar los descansos.</li>
+                    <li>Descuidar la hidratación y la alimentación.</li>
+                    <li>Realizar ejercicios con mala técnica o postura.</li>
+                    <li>No escuchar las señales de fatiga o dolor.</li>
+                </ul>
+                <div class="segunda-extra">
+                    <strong>Recuerda:</strong> La prevención es clave para evitar lesiones y mantener la motivación a largo plazo.
+                </div>
+            </div>
+        </section>
+        <section class="segunda-section" style="text-align:center;">
+            <h2>¡Motívate!</h2>
+            <p style="font-size:1.1em;max-width:800px;margin:0 auto;">Recuerda que la constancia es la clave. Establece metas realistas, busca compañía para ejercitarte y celebra tus logros. ¡Tu salud es tu mayor tesoro!</p>
+            <div style="margin-top:30px;display:flex;gap:18px;justify-content:center;">
+                <button class="btn-animado" onclick="window.location.href='tercera.html'">Siguiente: Alimentación Saludable</button>
+            </div>
+        </section>
+    </main>
+</body>
+<footer>
+    &copy; 2025 Salud Integral. Todos los derechos reservados.
+</footer>
+<script>
+document.getElementById('aceptar-bienvenida-segunda').onclick = function() {
+    document.getElementById('tarjeta-bienvenida-segunda').style.display = 'none';
+    var contenido = document.getElementById('contenido-segunda');
+    contenido.style.filter = 'none';
+    contenido.style.pointerEvents = 'auto';
+};
+</script>
+</html>

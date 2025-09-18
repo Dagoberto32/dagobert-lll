@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>concejos para un cuerpo sano</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="contenido animar-subir" style="text-align:center;max-width:400px;margin:60px auto 0 auto;padding:40px 30px 32px 30px;background:rgba(255,255,255,0.92);border-radius:18px;box-shadow:0 4px 24px rgba(67,160,71,0.10);">
+    <h1 style="margin-bottom:32px;">¡Bienvenido!</h1>
+    <button id="abrir-login" class="animar-subir" style="width:100%;padding:14px 0;font-size:1.15em;margin-bottom:18px;">Iniciar sesión</button>
+    <div id="mensaje-bienvenida" class="mensaje-bienvenida">¡Bienvenido a la página de salud y ejercicio!</div>
+    <button id="alerta-segunda" class="alerta-dinamica animar-subir" style="display:none;width:100%;">¡Ya ingresaste a la sección de ejercicio!</button>
+    </div>
+    <div id="modal-login" class="modal-login">
+        <form id="login-form" class="form-login">
+            <h2>Iniciar sesión</h2>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Entrar</button>
+            <button type="button" id="cerrar-modal" style="margin-top:10px;">Cancelar</button>
+        </form>
+    </div>
+
+    <script src="js/login.js"></script>
+    <script>
+    // Mostrar mensaje de bienvenida al hacer login
+    document.addEventListener('DOMContentLoaded', function() {
+        var loginBtn = document.getElementById('abrir-login');
+        var mensaje = document.getElementById('mensaje-bienvenida');
+        if(loginBtn && mensaje) {
+            loginBtn.addEventListener('click', function() {
+                mensaje.style.display = 'block';
+                setTimeout(function(){ mensaje.style.display = 'none'; }, 2200);
+            });
+        }
+    });
+    </script>
+    <script>
+        // Mostrar el botón dinámico si el usuario ya ingresó a la segunda página
+        if (localStorage.getItem('ingresoSegunda') === 'true') {
+            const alertaBtn = document.getElementById('alerta-segunda');
+            alertaBtn.style.display = 'inline-block';
+            alertaBtn.addEventListener('click', function() {
+                alert('¡Has ingresado correctamente a la sección de ejercicio saludable!');
+            });
+        }
+    </script>
+    <!-- Imagen de fondo aplicada con CSS -->
+
+</body>
+</html>
